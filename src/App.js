@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 
 function App() {
-  const [fname, setFname] = useState("");
+  const [state, setState] = useState({
+    fname: "",
+    lname: "",
+  });
 
   const handleChange = (e) => {
-    setFname(e.target.value);
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
   };
   return (
     <div>
@@ -12,10 +18,28 @@ function App() {
       <form>
         <label>
           First Name:{" "}
-          <input type="text" value={fname} onChange={handleChange} />
+          <input
+            type="text"
+            name="fname"
+            value={state.fname}
+            onChange={handleChange}
+          />
+        </label>{" "}
+        <br></br>
+        <br></br>
+        <label>
+          Last Name:{" "}
+          <input
+            type="text"
+            name="lname"
+            value={state.lname}
+            onChange={handleChange}
+          />
         </label>
       </form>
-      <h5>First name: {fname}</h5>
+      <h5>
+        Name: {state.fname} {state.lname}
+      </h5>
     </div>
   );
 }

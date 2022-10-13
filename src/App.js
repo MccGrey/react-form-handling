@@ -7,6 +7,7 @@ function App() {
     message: "",
     isChecked: false,
     gender: "",
+    price: 0,
   });
 
   const handleChange = (e) => {
@@ -100,6 +101,19 @@ function App() {
           />{" "}
           Female
         </label>
+        <br />
+        <br />
+        <label>
+          Price (between 0 and 1000):
+          <input
+            type="range"
+            name="price"
+            min="0"
+            max="1000"
+            value={state.price}
+            onChange={handleChange}
+          />
+        </label>
       </form>
       <h5>
         Name: {state.fname} {state.lname}
@@ -108,6 +122,7 @@ function App() {
       <p>Message: {state.message}</p>
       <h5>Is it checked? : {state.isChecked ? "Yes" : "No"}</h5>
       <h5>Gender Selected : {state.gender}</h5>
+      <h5>Price : ${state.price}</h5>
     </div>
   );
 }

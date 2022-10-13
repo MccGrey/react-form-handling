@@ -6,6 +6,7 @@ function App() {
     lname: "",
     message: "",
     isChecked: false,
+    gender: "",
   });
 
   const handleChange = (e) => {
@@ -77,6 +78,28 @@ function App() {
           />{" "}
           Is Checked?
         </label>
+        <br />
+        <br />
+        <label>
+          <input
+            type="radio"
+            name="gender"
+            value="male"
+            checked={state.gender === "male"}
+            onChange={handleChange}
+          />{" "}
+          Male
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="gender"
+            value="female"
+            checked={state.gender === "female"}
+            onChange={handleChange}
+          />{" "}
+          Female
+        </label>
       </form>
       <h5>
         Name: {state.fname} {state.lname}
@@ -84,6 +107,7 @@ function App() {
       <h5>My favorite car brand: {state.carBrand}</h5>
       <p>Message: {state.message}</p>
       <h5>Is it checked? : {state.isChecked ? "Yes" : "No"}</h5>
+      <h5>Gender Selected : {state.gender}</h5>
     </div>
   );
 }
